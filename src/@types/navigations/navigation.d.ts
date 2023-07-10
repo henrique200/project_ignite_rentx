@@ -8,6 +8,8 @@ export declare global {
       SchedulingDetails: { car: any; dates: any };
       SchedulingComplete: undefined;
       MyCars: undefined;
+      SignUpFirstStep: undefined;
+      SignUpSecondStep: undefined;
     }
   }
 }

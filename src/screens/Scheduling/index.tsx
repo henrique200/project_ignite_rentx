@@ -51,19 +51,19 @@ export function Scheduling() {
   );
 
   const theme = useTheme();
-  const navigation = useNavigation();
+  const { navigate, goBack } = useNavigation();
   const route = useRoute();
   const { car } = route.params as Params;
 
   function handleConfirmRentalDetail() {
-    navigation.navigate("SchedulingDetails", {
+    navigate("SchedulingDetails", {
       car,
       dates: Object.keys(markedDates),
     });
   }
 
   function handleBack() {
-    navigation.goBack();
+    goBack();
   }
 
   function handleChangeDate(date: DayProps) {

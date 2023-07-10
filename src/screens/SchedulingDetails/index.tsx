@@ -59,7 +59,7 @@ export function SchedulingDetails() {
   );
 
   const theme = useTheme();
-  const navigation = useNavigation();
+  const { navigate, goBack } = useNavigation();
   const route = useRoute();
   const { car, dates } = route.params as Params;
 
@@ -89,7 +89,7 @@ export function SchedulingDetails() {
         id: car.id,
         unavailable_dates,
       })
-      .then(() => navigation.navigate("SchedulingComplete"))
+      .then(() => navigate("SchedulingComplete"))
       .catch(() => {
         Alert.alert("Não foi possível confirmar o agendamento.");
         setLoading(false);
@@ -97,7 +97,7 @@ export function SchedulingDetails() {
   }
 
   function handleBack() {
-    navigation.goBack();
+    goBack();
   }
 
   useEffect(() => {

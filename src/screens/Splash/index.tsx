@@ -18,7 +18,7 @@ import { useNavigation } from "@react-navigation/native";
 
 export function Splash() {
   const splashAnimation = useSharedValue(0);
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
 
   const brandStyle = useAnimatedStyle(() => {
     return {
@@ -53,7 +53,7 @@ export function Splash() {
   });
 
   function startApp() {
-    navigation.navigate("Home");
+    navigate("Home");
   }
 
   useEffect(() => {

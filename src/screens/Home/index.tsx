@@ -23,14 +23,14 @@ import Logo from "../../assets/logo.svg";
 import api from "../../services/api";
 import { CarDTO } from "../../dtos/CarDTO";
 import { Car } from "../../components/Car";
-import { LoadAnimation } from "../../components/LoadAnimation";
+import { Load } from "../../components/Load";
 
 import { CarList, Container, Header, HeaderContent, TotalCars } from "./styles";
 
 export function Home() {
   const [cars, setCars] = useState<CarDTO[]>([]);
   const [loading, setLoading] = useState(true);
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
   const theme = useTheme();
   const positionY = useSharedValue(0);
   const positionX = useSharedValue(0);
@@ -60,11 +60,11 @@ export function Home() {
   });
 
   function handleCarDetails(car: CarDTO) {
-    navigation.navigate("CarDetails", { car });
+    navigate("CarDetails", { car });
   }
 
   function handleMyCars() {
-    navigation.navigate("MyCars");
+    navigate("MyCars");
   }
 
   useEffect(() => {
@@ -103,7 +103,7 @@ export function Home() {
       </Header>
 
       {loading ? (
-        <LoadAnimation />
+        <Load />
       ) : (
         <CarList
           data={cars}

@@ -10,10 +10,10 @@ import { ConfirmButton } from "../../components/ConfirmButton";
 
 export function SchedulingComplete() {
   const { width } = useWindowDimensions();
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
 
   function handleConfirmRentalHome() {
-    navigation.navigate("Home");
+    navigate("Home");
   }
 
   return (

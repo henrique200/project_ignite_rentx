@@ -40,7 +40,7 @@ interface Params {
 }
 
 export function CarDetails() {
-  const navigation = useNavigation();
+  const { navigate, goBack } = useNavigation();
   const route = useRoute();
   const theme = useTheme();
   const { car } = route.params as Params;
@@ -69,11 +69,11 @@ export function CarDetails() {
   });
 
   function handleConfirmRental() {
-    navigation.navigate("Scheduling", { car });
+    navigate("Scheduling", { car });
   }
 
   function handleBack() {
-    navigation.goBack();
+    goBack();
   }
 
   return (
